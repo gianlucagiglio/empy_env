@@ -8,7 +8,9 @@ White framework compiler grunt embeed.
 
 ## Configuration
 
-* $$
+* npm install grunt-contrib-cssmin --save-dev
+* npm install html-minifier
+* npm install grunt-contrib-htmlmin --save-dev
 
 ## Documentation
 

@@ -38,6 +38,22 @@ module.exports = function(grunt) {
         }
       }
     },
+    htmlmin: {                                     // Task
+      dist: {                                      // Target
+        options: {                                 // Target options
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {                                   // Dictionary of files
+          'dist/index.html': 'index.html'     // 'destination': 'source'
+        }
+      },
+      dev: {                                       // Another target
+        files: {
+          'dev/index.html': 'src/index.html'
+        }
+      }
+    },
     concat: {
       index: {
         src: [
@@ -69,12 +85,19 @@ module.exports = function(grunt) {
           'css/*.css'
         ],
         tasks: ['buildCSS']
+      },
+      html: {
+        files: [
+          '*.html'
+        ],
+        tasks: ['buildHTML']
       }
     }
   });
 
-  grunt.loadTasks('build/tasks');
+  //grunt.loadTasks('build/tasks');
 
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -83,6 +106,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('buildJS', ['jshint', 'concat', 'uglify']);
   grunt.registerTask('buildCSS', ['mincss']);
-  grunt.registerTask('default', ['buildJS', 'buildCSS']);
+  grunt.registerTask('buildHTML', ['htmlmin']);
+  grunt.registerTask('default', ['buildHTML','buildJS', 'buildCSS']);
+
 
 };
