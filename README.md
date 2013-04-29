@@ -28,3 +28,4 @@ White framework compiler grunt embeed.
 
 * Source: [https://github.com/gianlucagiglio/empy_env](http://gruntjs.com/https://github.com/gianlucagiglio/empy_env)
 * Contributors: [http://gruntjs.com](http://gruntjs.com)
+* Contributors: [http://nodejs.org/](http://nodejs.org)
