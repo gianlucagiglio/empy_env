@@ -24,10 +24,6 @@ module.exports = function(grunt) {
       ]
     },
     mincss: {
-      all:[
-        'css/style1.css',
-        'css/style2.css'
-      ],
       compress: {
         files: {
           'css/concat/<%= pkg.version %>/style.css': ['css/style1.css', 'css/style2.css']
