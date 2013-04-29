@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     mincss: {
       compress: {
         files: {
-          'css/concat/<%= pkg.version %>/style.css': ['css/style1.css', 'css/style2.css']
+          '<%= pkg.path.cssconcat %>/<%= pkg.version %>/style.css': ['css/style1.css', 'css/style2.css']
         }
       },
       with_banner: {
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
           banner: '/* My minified css file */'
         },
         files: {
-          'css/minified/<%= pkg.version %>/style-min.css': ['css/concat/<%= pkg.version %>/style.css']
+          '<%= pkg.path.cssmin %><%= pkg.version %>/style-min.css': ['<%= pkg.path.cssconcat %>/<%= pkg.version %>/style.css']
         }
       }
     },
@@ -45,12 +45,15 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: {                                   // Dictionary of files
-          'dist/index.html': 'index.html'     // 'destination': 'source'
+          '<%= pkg.path.htmlmin %>/<%= pkg.version %>/index-min.html': 'index.html'     // 'destination': 'source'
         }
       },
-      dev: {                                       // Another target
+      dev: {                                         // Target
+        options: {                                 // Target options
+          removeComments: true
+        },                                    // Another target
         files: {
-          'dev/index.html': 'src/index.html'
+          '<%= pkg.path.htmlclean %>/<%= pkg.version %>/index.html': 'index.html'
         }
       }
     },
@@ -60,7 +63,7 @@ module.exports = function(grunt) {
           'js/1.js',
           'js/2.js'
         ],
-        dest: 'js/dist/concat/<%= pkg.version %>/12.js'
+        dest: '<%= pkg.path.jsconcat %>/<%= pkg.version %>/12.js'
       }
     },
     uglify: {
@@ -69,7 +72,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'js/dist/minified/<%= pkg.version %>/12-min.js': ['js/dist/concat/<%= pkg.version %>/12.js']
+          '<%= pkg.path.jsmin %>/<%= pkg.version %>/12-min.js': ['<%= pkg.path.jsconcat %>/<%= pkg.version %>/12.js']
         }
       }
     },
