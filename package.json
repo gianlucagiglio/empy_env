@@ -3,22 +3,35 @@
   "title": "test",
   "version": "1.0.0",
   "homepage": "http://www.test.it/",
+
   "author": {
     "name"  : "Gianluca giglio",
     "email" : "gianluca.giglio@gmail.com",
     "url"   : "http://www.looperspectives.com"
   },
+
   "path":{
-    "jsconcat":"dist/js/concat/",
-    "jsmin":"dist/js/minified/",
-    "cssconcat":"dist/css/concat/",
-    "cssmin":"dist/css/minified/",
-    "htmlclean":"dist/html/clean/",
-    "htmlmin":"dist/html/minified/"
+    "jsconcat"  : "dist/js/concat/",
+    "jsmin"     : "dist/js/minified/",
+    "cssconcat" : "dist/css/concat/",
+    "cssmin"    : "dist/css/minified/",
+    "htmlclean" : "dist/html/clean/",
+    "htmlmin"   : "dist/html/minified/"
   },
+
+  "distName":{
+    "indexconcat"   : "index.html",
+    "indexmin"      : "index-min.html",
+    "indexjsconcat" : "index.js",
+    "indexjsmin"    : "index-min.js",
+    "cssconcat"     : "style.css",
+    "cssmin"        : "style-min.css"
+  },
+
   "engines": {
     "node": ">= 0.8.0"
   },
+
   "devDependencies": {
     "grunt": "~0.4.0rc7",
     "grunt-contrib-concat": "~0.1.2rc6",
@@ -27,6 +40,7 @@
     "grunt-contrib-mincss": "~0.4.0rc7",
     "grunt-contrib-watch":  "~0.2.0rc7"
   }
+
 }
 
 

@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     mincss: {
       compress: {
         files: {
-          '<%= pkg.path.cssconcat %>/<%= pkg.version %>/style.css': ['css/style1.css', 'css/style2.css']
+          '<%= pkg.path.cssconcat %>/<%= pkg.version %>/<%= pkg.distName.cssconcat %>': ['css/style1.css', 'css/style2.css']
         }
       },
       with_banner: {
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
           banner: '/* My minified css file */'
         },
         files: {
-          '<%= pkg.path.cssmin %><%= pkg.version %>/style-min.css': ['<%= pkg.path.cssconcat %>/<%= pkg.version %>/style.css']
+          '<%= pkg.path.cssmin %><%= pkg.version %>/<%= pkg.distName.cssmin %>': ['<%= pkg.path.cssconcat %>/<%= pkg.version %>/<%= pkg.distName.cssconcat %>']
         }
       }
     },
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: {                                   // Dictionary of files
-          '<%= pkg.path.htmlmin %>/<%= pkg.version %>/index-min.html': 'index.html'     // 'destination': 'source'
+          '<%= pkg.path.htmlmin %>/<%= pkg.version %>/<%= pkg.distName.indexmin %>': 'index.html'     // 'destination': 'source'
         }
       },
       dev: {                                         // Target
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
           removeComments: true
         },                                    // Another target
         files: {
-          '<%= pkg.path.htmlclean %>/<%= pkg.version %>/index.html': 'index.html'
+          '<%= pkg.path.htmlclean %>/<%= pkg.version %>/<%= pkg.distName.indexconcat %> ': 'index.html'
         }
       }
     },
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
           'js/1.js',
           'js/2.js'
         ],
-        dest: '<%= pkg.path.jsconcat %>/<%= pkg.version %>/12.js'
+        dest: '<%= pkg.path.jsconcat %>/<%= pkg.version %>/<%= pkg.distName.indexjsconcat %>'
       }
     },
     uglify: {
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '<%= pkg.path.jsmin %>/<%= pkg.version %>/12-min.js': ['<%= pkg.path.jsconcat %>/<%= pkg.version %>/12.js']
+          '<%= pkg.path.jsmin %>/<%= pkg.version %>/<%= pkg.distName.indexjsmin %>': ['<%= pkg.path.jsconcat %>/<%= pkg.version %>/<%= pkg.distName.indexjsconcat %>']
         }
       }
     },
