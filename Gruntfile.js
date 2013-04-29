@@ -13,6 +13,40 @@ module.exports = function(grunt) {
         " *  License: <%= _.pluck(pkg.licenses, 'type').join(', ') %>\n" +
         "*/\n"
     },
+
+    //REMAP JSON
+    path: {
+      htmlmin     : '<%= pkg.path.htmlmin %>/<%= pkg.version %>/<%= pkg.distName.indexmin %>',
+      htmlconcat  : '<%= pkg.path.htmlclean %>/<%= pkg.version %>/<%= pkg.distName.indexconcat %>',
+      jsconcat    : '<%= pkg.path.jsconcat %>/<%= pkg.version %>/<%= pkg.distName.indexjsconcat %>',
+      jsmin       : '<%= pkg.path.jsmin %>/<%= pkg.version %>/<%= pkg.distName.indexjsmin %>',
+      cssconcat   : '<%= pkg.path.cssconcat %>/<%= pkg.version %>/<%= pkg.distName.cssconcat %>',
+      cssmin      : '<%= pkg.path.cssmin %><%= pkg.version %>/<%= pkg.distName.cssmin %>'
+    },
+
+    //HTML 
+    htmlmin: {                                     // Task
+      dist: {                                      // Target
+        options: {                                 // Target options
+          removeComments: true,
+          collapseWhitespace: true, 
+          banner: '<%= meta.banner %>'
+        },
+        files: {                                   // Dictionary of files
+          '<%= path.htmlmin %>' : 'index.html'  //DO NOT CHANGE LEFT SIDE
+        }
+      },
+      dev: {                                         // Target
+        options: {                                 // Target options
+          removeComments: true
+        },                                    // Another target
+        files: {
+          '<%= path.htmlconcat %>' : 'index.html' //DO NOT CHANGE LEFT SIDE
+        }
+      }
+    },
+
+    //JAVASCRIPT
     jshint: {
       options: {
         node: true,
@@ -23,47 +57,13 @@ module.exports = function(grunt) {
         'js/*.js'
       ]
     },
-    mincss: {
-      compress: {
-        files: {
-          '<%= pkg.path.cssconcat %>/<%= pkg.version %>/<%= pkg.distName.cssconcat %>': ['css/style1.css', 'css/style2.css']
-        }
-      },
-      with_banner: {
-        options: {
-          banner: '/* My minified css file */'
-        },
-        files: {
-          '<%= pkg.path.cssmin %><%= pkg.version %>/<%= pkg.distName.cssmin %>': ['<%= pkg.path.cssconcat %>/<%= pkg.version %>/<%= pkg.distName.cssconcat %>']
-        }
-      }
-    },
-    htmlmin: {                                     // Task
-      dist: {                                      // Target
-        options: {                                 // Target options
-          removeComments: true,
-          collapseWhitespace: true
-        },
-        files: {                                   // Dictionary of files
-          '<%= pkg.path.htmlmin %>/<%= pkg.version %>/<%= pkg.distName.indexmin %>': 'index.html'     // 'destination': 'source'
-        }
-      },
-      dev: {                                         // Target
-        options: {                                 // Target options
-          removeComments: true
-        },                                    // Another target
-        files: {
-          '<%= pkg.path.htmlclean %>/<%= pkg.version %>/<%= pkg.distName.indexconcat %> ': 'index.html'
-        }
-      }
-    },
     concat: {
       index: {
         src: [
           'js/1.js',
           'js/2.js'
         ],
-        dest: '<%= pkg.path.jsconcat %>/<%= pkg.version %>/<%= pkg.distName.indexjsconcat %>'
+        dest: '<%= path.jsconcat %>'//DO NOT CHANGE
       }
     },
     uglify: {
@@ -72,10 +72,29 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '<%= pkg.path.jsmin %>/<%= pkg.version %>/<%= pkg.distName.indexjsmin %>': ['<%= pkg.path.jsconcat %>/<%= pkg.version %>/<%= pkg.distName.indexjsconcat %>']
+          '<%= path.jsmin %>' : '<%= path.jsconcat %>'//DO NOT CHANGE 
         }
       }
     },
+
+    //CSS
+    mincss: {
+      compress: {
+        files: {
+          '<%= path.cssconcat %>' : ['css/style1.css', 'css/style2.css'] //DO NOT CHANGE LEFT SIDE
+        }
+      },
+      with_banner: {
+        options: {
+          banner: '<%= meta.banner %>'
+        },
+        files: {
+          '<%= path.cssmin %>':['<%= path.cssconcat %>'] //DO NOT CHANGE 
+        }
+      }
+    },
+
+    //WATCH
     watch: {
       js: {
         files: [
@@ -96,6 +115,7 @@ module.exports = function(grunt) {
         tasks: ['buildHTML']
       }
     }
+
   });
 
   //grunt.loadTasks('build/tasks');
