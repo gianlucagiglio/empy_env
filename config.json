@@ -1,0 +1,17 @@
+{
+  "html":"index.html",
+
+  "js"  :[
+    "js/1.js",
+    "js/2.js",
+    "js/3.js"
+  ],
+
+  "css":[
+    "css/style1.css", 
+    "css/style2.css"
+  ]
+
+}
+
+

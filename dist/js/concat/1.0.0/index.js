@@ -4,3 +4,5 @@ function one (){
 }
 function two (){//log
 }
+function three (){//log
+}

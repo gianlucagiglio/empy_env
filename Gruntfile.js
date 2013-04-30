@@ -3,6 +3,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    config: grunt.file.readJSON('config.json'),
     meta: {
       banner: "/*!\n" +
         " *  Project: <%= pkg.title || pkg.name %>\n" +
@@ -33,7 +34,7 @@ module.exports = function(grunt) {
           banner: '<%= meta.banner %>'
         },
         files: {                                   // Dictionary of files
-          '<%= path.htmlmin %>' : 'index.html'  //DO NOT CHANGE LEFT SIDE
+          '<%= path.htmlmin %>' : '<%= config.html %>'  //DO NOT CHANGE LEFT SIDE
         }
       },
       dev: {                                         // Target
@@ -41,7 +42,7 @@ module.exports = function(grunt) {
           removeComments: true
         },                                    // Another target
         files: {
-          '<%= path.htmlconcat %>' : 'index.html' //DO NOT CHANGE LEFT SIDE
+          '<%= path.htmlconcat %>' : '<%= config.html %>' //DO NOT CHANGE LEFT SIDE
         }
       }
     },
@@ -59,10 +60,7 @@ module.exports = function(grunt) {
     },
     concat: {
       index: {
-        src: [
-          'js/1.js',
-          'js/2.js'
-        ],
+        src: '<%= config.js %>',
         dest: '<%= path.jsconcat %>'//DO NOT CHANGE
       }
     },
@@ -81,7 +79,7 @@ module.exports = function(grunt) {
     mincss: {
       compress: {
         files: {
-          '<%= path.cssconcat %>' : ['css/style1.css', 'css/style2.css'] //DO NOT CHANGE LEFT SIDE
+          '<%= path.cssconcat %>' : '<%= config.css %>'//DO NOT CHANGE LEFT SIDE
         }
       },
       with_banner: {
