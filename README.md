@@ -1,28 +1,21 @@
-# [White framework compiler grunt embeed](http://www.none.com/)
+# [White framework compiler grunt](https://github.com/gianlucagiglio/empy_env)
 
-White framework compiler grunt embeed.
+White framework compiler grunt.
 
 ## Installation
 
-* $$
+* Need installed node.js
+* Follow the guidance: [http://gruntjs.com/getting-started]http://gruntjs.com/getting-started
 
-## Configuration
+## Required
 
 * npm install grunt-contrib-cssmin --save-dev
 * npm install html-minifier
 * npm install grunt-contrib-htmlmin --save-dev
 
-## Documentation
-
-* $$
-
 ## Features
 
-* $$
-
-## Contributing
-
-* $$
+* Load external config.json 
 
 ## Project information
 
