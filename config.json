@@ -17,7 +17,7 @@
   ],
 
   "sass":[
-    "sass/test.sass"
+    "sass/test.scss"
   ]
 
 }
