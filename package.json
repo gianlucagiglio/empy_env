@@ -3,44 +3,48 @@
   "title": "test",
   "version": "1.0.0",
   "homepage": "http://www.test.it/",
-
   "author": {
-    "name"  : "Gianluca giglio",
-    "email" : "gianluca.giglio@gmail.com",
-    "url"   : "http://www.looperspectives.com"
+    "name": "Gianluca giglio",
+    "email": "gianluca.giglio@gmail.com",
+    "url": "http://www.looperspectives.com"
   },
-
-  "path":{
-    "jsconcat"  : "dist/js/concat/",
-    "jsmin"     : "dist/js/minified/",
-    "cssconcat" : "dist/css/concat/",
-    "cssmin"    : "dist/css/minified/",
-    "htmlclean" : "dist/html/clean/",
-    "htmlmin"   : "dist/html/minified/"
+  "path": {
+    "jsconcat": "dist/js/concat/",
+    "jsmin": "dist/js/minified/",
+    "lessconcat": "dist/less/concat/",
+    "lessmin": "dist/less/minified/",
+    "cssconcat": "dist/css/concat/",
+    "cssmin": "dist/css/minified/",
+    "sassconcat": "dist/sass/concat/",
+    "sassmin": "dist/sass/minified/",
+    "htmlclean": "dist/html/clean/",
+    "htmlmin": "dist/html/minified/"
   },
-
-  "distName":{
-    "indexconcat"   : "index.html",
-    "indexmin"      : "index-min.html",
-    "indexjsconcat" : "index.js",
-    "indexjsmin"    : "index-min.js",
-    "cssconcat"     : "style.css",
-    "cssmin"        : "style-min.css"
+  "distName": {
+    "indexconcat": "index.html",
+    "indexmin": "index-min.html",
+    "indexjsconcat": "index.js",
+    "indexjsmin": "index-min.js",
+    "lessconcat": "less.css",
+    "lessmin": "less-min.css",
+    "sassconcat": "sass.css",
+    "sassmin": "sass-min.css",
+    "cssconcat": "style.css",
+    "cssmin": "style-min.css"
   },
-
   "engines": {
     "node": ">= 0.8.0"
   },
-
   "devDependencies": {
     "grunt": "~0.4.0rc7",
     "grunt-contrib-concat": "~0.1.2rc6",
     "grunt-contrib-jshint": "~0.1.1rc6",
     "grunt-contrib-uglify": "~0.1.1rc6",
     "grunt-contrib-mincss": "~0.4.0rc7",
-    "grunt-contrib-watch":  "~0.2.0rc7"
+    "grunt-contrib-watch": "~0.2.0rc7",
+    "grunt-contrib-less": "~0.5.1",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-htmlmin": "~0.1.3",
+    "grunt-contrib-sass": "~0.3.0"
   }
-
 }
-
-

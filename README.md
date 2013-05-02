@@ -12,6 +12,8 @@ White framework compiler grunt.
 * npm install grunt-contrib-cssmin --save-dev
 * npm install html-minifier
 * npm install grunt-contrib-htmlmin --save-dev
+* npm install grunt-contrib-less --save-dev
+* npm install grunt-contrib-sass --save-dev
 
 ## Features
 

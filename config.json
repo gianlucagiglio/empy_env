@@ -10,6 +10,14 @@
   "css":[
     "css/style1.css", 
     "css/style2.css"
+  ],
+
+  "less":[
+    "less/test.less"
+  ],
+
+  "sass":[
+    "sass/test.sass"
   ]
 
 }
